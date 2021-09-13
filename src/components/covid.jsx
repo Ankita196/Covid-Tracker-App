@@ -1,28 +1,43 @@
 import React, {useEffect,useState} from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import FormLabel from '@material-ui/core/FormLabel';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import Radio from '@material-ui/core/Radio';
 import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    display: 'block',
+    
+   
+    alignItems: 'center',
   },
   paper: {
-    height: 140,
-    width: 100,
-  },
-  control: {
     padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    height:60,
+    width:300,
+    fontWeight:"bold",
+    fontFamily:"Lucida Console",
+    backgroundImage:"linear-gradient(#4db6ac,#b2dfdb)"
+    
   },
+  papers: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color:"#004d40",
+    fontWeight:"bold",
+    fontSize:30,
+    fontFamily:"Lucida Console"
+    
+  },
+  
 }));
 
 
 export default function Covid() {
+  const classes = useStyles();
  const [data, setData]= useState([])
 const getCovidData= async ()=>{
 try {
@@ -36,13 +51,32 @@ setData(actualData.statewise[0])
 }
 
 useEffect(()=>{
-// getCovidData()
+  // getCovidData()
 },[])
 
   return (
-    <div>
-      <h1>Covid</h1>
-      <p>{data.active}</p>
-    </div>
-  );
+    <div >
+    <Grid container spacing={3} className={classes.root}>
+      <Grid item xs={12}>
+        <Paper className={classes.papers}>Covid 19 Tracker App</Paper>
+      </Grid>
+      <Grid item xs={12}>
+        <Paper className={classes.paper}>Total Active cases <br/><br/> {data.active}      </Paper>
+      </Grid>
+      <Grid item xs={12}>
+        <Paper className={classes.paper}> Total Confirmed <br/><br/> {data.confirmed}</Paper>
+      </Grid>
+      <Grid item xs={12}>
+        <Paper className={classes.paper}> Total Deaths<br/><br/>  {data.deaths }</Paper>
+      </Grid>
+      <Grid item xs={12}>
+        <Paper className={classes.paper}> Last updatedtime <br/><br/> {data.lastupdatedtime}</Paper>
+      </Grid>
+      <Grid item xs={12}>
+        <Paper className={classes.paper}> Total recovered <br/><br/> {data.recovered}</Paper>
+      </Grid>
+     
+    </Grid>
+  </div>
+);
 }

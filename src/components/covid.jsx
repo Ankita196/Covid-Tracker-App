@@ -7,10 +7,10 @@ import Grid from '@material-ui/core/Grid';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    display: 'block',
-    
-   
+    flexDirection: 'column',
     alignItems: 'center',
+   
+    
   },
   paper: {
     padding: theme.spacing(2),
@@ -55,10 +55,10 @@ useEffect(()=>{
 },[])
 
   return (
-    <div >
-    <Grid container spacing={3} className={classes.root}>
-      <Grid item xs={12}>
-        <Paper className={classes.papers}>Covid 19 Tracker App</Paper>
+    <div style={{marginTop:60}}>
+    <Grid container spacing={6} className={classes.root}>
+      <Grid item xs={12}className={classes.papers}>
+        COVID19 TRACKER APP<br/>
       </Grid>
       <Grid item xs={12}>
         <Paper className={classes.paper}>Total Active cases <br/><br/> {data.active}      </Paper>

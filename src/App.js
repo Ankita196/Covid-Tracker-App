@@ -3,7 +3,7 @@ import "./style.css";
 import Covid from "./components/covid"
 export default function App() {
   return (
-    <div>
+    <div >
      <Covid />
     </div>
   );

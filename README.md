@@ -3,4 +3,4 @@
 [Edit on StackBlitz ⚡️](https://stackblitz.com/edit/react-refvkn)
 #Covid19 tracker App
 <br/>
-#just showing about covid cases using covid19 api
+#showing a covid confirm cases , recovered cases and death cases number
